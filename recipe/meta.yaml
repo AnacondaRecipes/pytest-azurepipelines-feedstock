@@ -1,5 +1,5 @@
 {% set name = "pytest-azurepipelines" %}
-{% set version = "0.8.0" %}
+{% set version = "1.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 944ae2c0790b792d123aa7312fe307bc35214dd26531728923ae5085a1d1feab
+  sha256: fd08f089bca0fad3c2b6fde9dbea69b975492ffaa8cb637cc987e64af8c18b9c
 
 build:
   noarch: python
@@ -25,8 +25,11 @@ requirements:
 test:
   imports:
     - pytest_azurepipelines
+  requires:
+    - importlib_resources
   commands:
-    - "py.test --traceconfig | grep pytest-azurepipelines-{{ version }}"
+    - python test/test_azurepipelines.py
+    # - "py.test --traceconfig | grep pytest-azurepipelines-{{ version }}"
 
 about:
   home: https://github.com/tonybaloney/pytest-azurepipelines
