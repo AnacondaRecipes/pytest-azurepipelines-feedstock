@@ -30,9 +30,9 @@ test:
     - importlib_resources
     - pip
   commands:
+    - pip install pytest-nunit
     - pip check
-    - python test/test_azurepipelines.py
-    # - "py.test --traceconfig | grep pytest-azurepipelines-{{ version }}"
+    - "py.test --traceconfig | grep pytest-azurepipelines-{{ version }}"
 
 about:
   home: https://github.com/tonybaloney/pytest-azurepipelines
