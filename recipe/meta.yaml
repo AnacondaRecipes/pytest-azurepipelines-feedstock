@@ -28,6 +28,7 @@ test:
     - pytest_azurepipelines
   requires:
     - importlib_resources
+    - pip
   commands:
     - pip check
     - python test/test_azurepipelines.py
