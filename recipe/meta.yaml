@@ -12,12 +12,13 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: "{{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv"
 
 requirements:
   host:
     - python
     - pip
+    - wheel
   run:
     - python
     - pytest
@@ -28,6 +29,7 @@ test:
   requires:
     - importlib_resources
   commands:
+    - pip check
     - python test/test_azurepipelines.py
     # - "py.test --traceconfig | grep pytest-azurepipelines-{{ version }}"
 
