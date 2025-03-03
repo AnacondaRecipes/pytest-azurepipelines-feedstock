@@ -22,8 +22,8 @@ requirements:
   run:
     - importlib_resources
     - python
-    - pytest
-    - pytest-nunit
+    - pytest >=5.0.0
+    - pytest-nunit >=1.0.0,<2.0.0
 
 test:
   imports:
