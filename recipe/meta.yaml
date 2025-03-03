@@ -20,17 +20,17 @@ requirements:
     - pip
     - wheel
   run:
+    - importlib_resources
     - python
     - pytest
+    - pytest-nunit
 
 test:
   imports:
     - pytest_azurepipelines
   requires:
-    - importlib_resources
     - pip
   commands:
-    - pip install pytest-nunit
     - pip check
     - "py.test --traceconfig | grep pytest-azurepipelines-{{ version }}"
 
@@ -40,7 +40,6 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: 'Plugin for pytest that makes it simple to work with Azure Pipelines'
-
   description: |
     Making Pytest easier to use with Microsoft Azure Pipelines. Just run pytest with
     this plugin and see your test results in the Azure Pipelines UI!
